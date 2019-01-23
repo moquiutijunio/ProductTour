@@ -22,15 +22,19 @@
 #pragma mark - Constructor
 
 
--(id)initWithAttachedView:(UIView*)view title:(NSString*)title description:(NSString*)bubbleDescription arrowPosition:(CRArrowPosition)arrowPosition andColor:(UIColor*)color
-{
+-(id)initWithAttachedView:(UIView*)view title:(NSString*)title description:(NSString*)bubbleDescription arrowPosition:(CRArrowPosition)arrowPosition color:(UIColor*)color textColor:(UIColor*)textColor {
     self = [super init];
-    if(self)
-    {
-        if(color!=nil)
-            self.color=color;
+    if(self) {
+        
+        if(textColor!=nil)
+            self.textColor = textColor;
         else
-            self.color=COLOR_GLUE_BLUE;
+            self.textColor = COLOR_DARK_GRAY;
+        
+        if(color!=nil)
+            self.color = color;
+        else
+            self.color = COLOR_GLUE_BLUE;
         self.attachedView = view;
         self.title = title;
         self.bubbleDescription = bubbleDescription;
@@ -48,7 +52,7 @@
         
         if (self.title && ![self.title isEqualToString:@""]) {
             titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(actualXPosition, actualYPosition, actualWidth, actualHeight)];
-            [titleLabel setTextColor:[UIColor blackColor]];
+            [titleLabel setTextColor: self.textColor];
             [titleLabel setAlpha:0.6];
             [titleLabel setFont:[UIFont fontWithName:fontName size:CR_TITLE_FONT_SIZE]];
             [titleLabel setText:title];
@@ -70,18 +74,17 @@
             actualHeight =CR_DESCRIPTION_FONT_SIZE;
             
             UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(actualXPosition, actualYPosition, actualWidth, actualHeight+CR_ARROW_SPACE)];
-            [descriptionLabel setTextColor:COLOR_DARK_GRAY];
-            [descriptionLabel setFont:[UIFont systemFontOfSize:CR_DESCRIPTION_FONT_SIZE]];
-            [descriptionLabel setText:descriptionLine];
-            [descriptionLabel setBackgroundColor:[UIColor clearColor]];
-            [self addSubview:descriptionLabel];
+            [descriptionLabel setTextColor: self.textColor];
+            [descriptionLabel setFont: [UIFont systemFontOfSize:CR_DESCRIPTION_FONT_SIZE]];
+            [descriptionLabel setText: descriptionLine];
+            [descriptionLabel setBackgroundColor: [UIColor clearColor]];
+            [self addSubview: descriptionLabel];
             
             if (!self.title || [self.title isEqualToString:@""])
                 actualYPosition+=actualHeight;
-            
         }
         
-        if(SHOW_ZONE){
+        if(SHOW_ZONE) {
             UIView *myview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.attachedView.frame.size.width, self.attachedView.frame.size.height)];
             [myview setBackgroundColor:self.color];
             [myview setAlpha:0.3];

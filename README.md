@@ -13,7 +13,7 @@ Integration
 productTourView = [[CRProductTour alloc] initWithFrame:self.view.frame] ;
 
 //Setup your bubbles
-CRBubble *bubbleButton1 = [[CRBubble alloc] initWithAttachedView:_button1 title:@"My Title" description:@"A smal description" arrowPosition:CRArrowPositionBottom andColor:[UIColor redColor]];
+CRBubble *bubbleButton1 = [[CRBubble alloc] initWithAttachedView:_button1 title:@"My Title" description:@"A smal description" arrowPosition:CRArrowPositionBottom color:[UIColor redColor] textColor:[UIColor greenColor]];
 
 NSMutableArray *bubbleArray = [[NSMutableArray alloc] initWithObjects:bubbleButton1, nil];
     

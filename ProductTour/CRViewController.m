@@ -25,13 +25,13 @@
     
     //SET BUBBLES TOUR VIEWS
     
-    CRBubble *bubbleButton1 = [[CRBubble alloc] initWithAttachedView:_button1 title:@"1. The First Button" description:@"Setup your bubbles and \ndraw whatever you want \nwith multiline text" arrowPosition:CRArrowPositionTop andColor:nil];
+    CRBubble *bubbleButton1 = [[CRBubble alloc] initWithAttachedView:_button1 title:@"1. The First Button" description:@"Setup your bubbles and \ndraw whatever you want \nwith multiline text" arrowPosition:CRArrowPositionTop color:nil textColor: [UIColor greenColor]];
     //You can set the bubble title font.
     //[bubbleButton1 setFontName:@"Baskerville"];
     
-    CRBubble *bubbleButton2 = [[CRBubble alloc] initWithAttachedView:_button2 title:@"2. The Second Button" description:@"Just click, nothing append" arrowPosition:CRArrowPositionLeft andColor:nil];
+    CRBubble *bubbleButton2 = [[CRBubble alloc] initWithAttachedView:_button2 title:@"2. The Second Button" description:@"Just click, nothing append" arrowPosition:CRArrowPositionLeft color:nil textColor: [UIColor whiteColor]];
     
-    CRBubble *bubbleButtonHelp = [[CRBubble alloc] initWithAttachedView:_buttonHelp title:@"Help toogle" description:@"You don't need help anymore ? \nDisable it." arrowPosition:CRArrowPositionRight andColor:nil];
+    CRBubble *bubbleButtonHelp = [[CRBubble alloc] initWithAttachedView:_buttonHelp title:@"Help toogle" description:@"You don't need help anymore ? \nDisable it." arrowPosition:CRArrowPositionRight color:nil textColor: [UIColor whiteColor]];
     
     NSMutableArray *bubbleArray = [[NSMutableArray alloc] initWithObjects:bubbleButton1, bubbleButton2, bubbleButtonHelp, nil];
     
@@ -41,8 +41,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
